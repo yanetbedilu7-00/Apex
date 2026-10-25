@@ -21,5 +21,15 @@ The raw C code for both modules is here so you can see exactly how they work.
 
 ## Why We Built It This Way
 The hardest part of this project wasn't the code, it was dealing with the network restrictions in the virtual machine. Instead of giving up, we pivoted to using legitimate Windows tools (`curl.exe`) and external services (Discord) to bypass the block, which is exactly how real APTs operate in restricted environments.
+To ensure a comprehensive development process, we divided the project into four key areas: Core Development, Evasion & Security, Network Infrastructure, and QA & Documentation. This allowed us to specialize and focus deeply on each component while collaborating on the final integration.
+1.Kalkidan Ayele: Core Developer (Implant Architect) 
+           Focus: Writing the C code for the Windows Implant (implant.c).
+2.Yanet Bedilu: Evasion & Security Researcher
+         Focus: Defeating Windows Defender, Anti-Debugging, and VM Detection.
+3.Kalkidan Solomon:  Network & C2 Engineer
+             Focus: WinHTTP API, XOR Encryption, and Server Infrastructure.
+4.Bitanya Tsegaye:  QA & Documentation Lead
+            Focus: Testing, debugging, and creating the final presentation.
+
 
 *Note: This was built strictly for educational purposes to understand defensive evasion.*
