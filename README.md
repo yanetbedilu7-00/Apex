@@ -22,6 +22,8 @@ The raw C code for both modules is here so you can see exactly how they work.
 ## Why We Built It This Way
 The hardest part of this project wasn't the code, it was dealing with the network restrictions in the virtual machine. Instead of giving up, we pivoted to using legitimate Windows tools (`curl.exe`) and external services (Discord) to bypass the block, which is exactly how real APTs operate in restricted environments.
 <br>
+<br>
+<br>
 To ensure a comprehensive development process, we divided the project into four key areas: Core Development, Evasion & Security, Network Infrastructure, and QA & Documentation. This allowed us to specialize and focus deeply on each component while collaborating on the final integration.
 <br>
 1.Kalkidan Ayele: Core Developer (Implant Architect) 
