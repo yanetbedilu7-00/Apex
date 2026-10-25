@@ -29,6 +29,7 @@ The hardest part of this project wasn't the code, it was dealing with the networ
 Apex Strike Framework is an evolving project, and we plan to introduce new features and improvements in future versions. Our long-term vision is to expand its compatibility with Linux, Android, and other platforms.
 <br>
 <br>
+## Roles
 To ensure a comprehensive development process, we divided the project into four key areas: Core Development, Evasion & Security, Network Infrastructure, and QA & Documentation. This allowed us to specialize and focus deeply on each component while collaborating on the final integration.
 <br>
 1.Kalkidan Ayele: Core Developer (Implant Architect) 
