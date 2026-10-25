@@ -44,4 +44,4 @@ To ensure a comprehensive development process, we divided the project into four 
             <br>
 
 
-*Note: This was built strictly for educational purposes to understand defensive evasion.*
+Note: This was built strictly for educational purposes to understand defensive evasion.
